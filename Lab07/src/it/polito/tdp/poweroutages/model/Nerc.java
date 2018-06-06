@@ -1,13 +1,29 @@
 package it.polito.tdp.poweroutages.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Nerc {
 
 	private int id;
 	private String value;
+	
+	//salvo l'elenco di blackout collegati ad un nerc
+	List<Blackout> blackout= new ArrayList<Blackout>();
 
 	public Nerc(int id, String value) {
 		this.id = id;
 		this.value = value;
+	}
+	
+	
+
+	public List<Blackout> getBlackout() {
+		return blackout;
+	}
+
+	public void setBlackout(List<Blackout> blackout) {
+		this.blackout = blackout;
 	}
 
 	public int getId() {

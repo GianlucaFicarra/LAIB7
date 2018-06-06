@@ -1,0 +1,37 @@
+---SCHEMA RICORSIVA
+
+L’algoritmo ricorsivo per trovare la sequenza di balckout che massimizzi il numero di clienti coinvolti. 
+Selezionare il sottoinsieme di eventi di blackout che si sono verificati in un massimo di X anni, per un
+totale di Y ore di disservizio massimo, tale da massimizzare il numero totale di persone coinvolte
+
+---Rispondere alle seguenti domande:
+
+- Soluzione: elenco degli eventi di outages con relativa 
+			differenza tra inzio e fine e numero di persone coinvolte
+			
+- Soluzione parziale: elenco eventi di outages che rispetta i vincoli
+- Soluzione ottima: elenco eventi di outages con numero di persone coinvolte maggiore
+
+- Livello della ricorsione: non ESISTE un vero e proprio livello (ogni elemento aggiunto nella lista)
+
+- Condizione di terminazione: una volta che ciclo su tutti gli outages riferiti al NERC selezionato
+							provo ad inserire l'elemento e controllo la soluzione parziale 
+							==> la terminazione è IMPLICITA: è contenuto nel
+
+
+- Come generare nuove soluzioni?
+	Provo ad aggiungere tutti gli eventi di outages relativi al NERC inserito
+	- purché rispettino i vincoli:
+		- l'evento che sto aggiungendo non risale a X anni 
+			in più rispetto all'evento più vecchio della soluzione parziale
+	    
+	    - la differenza tra inizio e fine di ogni durata non supera le Y ore
+	    
+	    
+- Cosa fare quando ho trovato una soluzione completa?
+		- calcolo il numero di persone coinvolte in totale
+		
+		- confronta questo costo con quello della soluzione migliore trovata finora
+			- se è minore, salva questa soluzione come la migliore
+	
+		- in ogni caso, continua la ricerca
